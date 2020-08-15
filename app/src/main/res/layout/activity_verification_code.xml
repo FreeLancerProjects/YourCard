@@ -110,7 +110,7 @@
                                 android:id="@+id/btnConfirm"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/transparent"
+                                android:background="@drawable/small_rounded_btn_primary"
                                 android:text="@string/confirm"
                                 android:textColor="@color/white"
                                 android:textSize="15sp"
