@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">YourCard</string>
+    <string name="phone">Phone</string>
+    <string name="login">Login</string>
+    <string name="skip">Skip</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+    <string name="complete_register">Complete Register</string>
+    <string name="verfication_code">Verfication Code</string>
+    <string name="confirm">Confirm</string>
+    <string name="field_required">Fiels Required</string>
+    <string name="country_code">Country Code</string>
+    <string name="sign_in">Sign In</string>
+    <string name="please_sign_in_or_sign_up">Please Sign In or Sign Up</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_verfication_code">Enter Verfication Code</string>
+    <string name="confirmation_code">Confirmation Code</string>
+    <string name="resend">Resend</string>
+    <string name="signup">Signup</string>
+    <string name="terms_and_conditions">Terms of use</string>
+    <string name="email">Email</string>
+    <string name="notifications">Notifications</string>
+
+</resources>
