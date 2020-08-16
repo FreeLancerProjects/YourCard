@@ -17,10 +17,12 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 
+import com.yourcard.adapters.CardAdapter;
 import com.yourcard.adapters.SlidingMenuImage_Adapter;
 import com.yourcard.databinding.FragmentMainBinding;
 
@@ -58,6 +60,7 @@ public class Fragment_Main extends Fragment {
     private UserModel userModel;
     private SlidingMenuImage_Adapter slidingImage__adapter;
     private List<SingleRestaurantModel.MenuImages> menuImages;
+    private CardAdapter cardAdapter;
 
     public static Fragment_Main newInstance() {
         return new Fragment_Main();
@@ -90,6 +93,10 @@ public class Fragment_Main extends Fragment {
         slidingImage__adapter = new SlidingMenuImage_Adapter(activity, menuImages);
         binding.pager.setAdapter(slidingImage__adapter);
         binding.progBarSlider.setVisibility(View.GONE);
+        binding.progBarAccessories.setVisibility(View.GONE);
+        binding.progBarOffer.setVisibility(View.GONE);
+        cardAdapter.notifyDataSetChanged();
+
     }
 
     private void initView() {
@@ -103,7 +110,11 @@ public class Fragment_Main extends Fragment {
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         binding.progBarOffer.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         binding.progBarAccessories.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-
+        cardAdapter = new CardAdapter(menuImages, activity);
+        binding.recViewAccessories.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+        binding.recViewFavoriteOffers.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+        binding.recViewFavoriteOffers.setAdapter(cardAdapter);
+        binding.recViewAccessories.setAdapter(cardAdapter);
 
     }
 

@@ -45,7 +45,7 @@ public class VerificationCodeActivity extends AppCompatActivity {
     private CountDownTimer timer;
     private FirebaseAuth mAuth;
     private String verificationId;
-    private String smsCode ;
+    private String smsCode;
     private Preferences preferences;
 
     @Override
@@ -64,8 +64,7 @@ public class VerificationCodeActivity extends AppCompatActivity {
 
     private void getDataFromIntent() {
         Intent intent = getIntent();
-        if (intent!=null)
-        {
+        if (intent != null) {
             phone_code = intent.getStringExtra("phone_code");
             phone = intent.getStringExtra("phone");
 
@@ -78,19 +77,17 @@ public class VerificationCodeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         Paper.init(this);
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
-binding.tvResendCode.setOnClickListener(view ->sendSmsCode());
+        binding.tvResendCode.setOnClickListener(view -> sendSmsCode());
 
         binding.btnConfirm.setOnClickListener(view -> {
             String code = binding.edtCode.getText().toString().trim();
-            if (!code.isEmpty())
-            {
+            if (!code.isEmpty()) {
                 binding.edtCode.setError(null);
-                Common.CloseKeyBoard(this,binding.edtCode);
+                Common.CloseKeyBoard(this, binding.edtCode);
                 checkValidCode(code);
-            }else
-                {
-                   binding.edtCode.setError(getString(R.string.field_required));
-                }
+            } else {
+                binding.edtCode.setError(getString(R.string.field_required));
+            }
 
         });
         sendSmsCode();
@@ -119,20 +116,18 @@ binding.tvResendCode.setOnClickListener(view ->sendSmsCode());
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
-Log.e("gllgll",e.getMessage());
-                if (e.getMessage()!=null)
-                {
+                Log.e("gllgll", e.getMessage());
+                if (e.getMessage() != null) {
                     //Common.CreateDialogAlert(VerificationCodeActivity.this,e.getMessage());
-                }else
-                    {
-                     //   Common.CreateDialogAlert(VerificationCodeActivity.this,getString(R.string.failed));
+                } else {
+                    //   Common.CreateDialogAlert(VerificationCodeActivity.this,getString(R.string.failed));
 
-                    }
+                }
             }
         };
         PhoneAuthProvider.getInstance()
                 .verifyPhoneNumber(
-                        phone_code+phone,
+                        phone_code + phone,
                         60,
                         TimeUnit.SECONDS,
                         this,
@@ -145,7 +140,7 @@ Log.e("gllgll",e.getMessage());
 
     private void startTimer() {
         binding.tvResendCode.setEnabled(false);
-        timer = new CountDownTimer(60*1000,  1000) {
+        timer = new CountDownTimer(60 * 1000, 1000) {
             @Override
             public void onTick(long l) {
                 SimpleDateFormat format = new SimpleDateFormat("mm:ss", Locale.ENGLISH);
@@ -166,27 +161,24 @@ Log.e("gllgll",e.getMessage());
 
     private void checkValidCode(String code) {
 
-        if (verificationId!=null)
-        {
-            Log.e("1","1");
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId,code);
+        if (verificationId != null) {
+            Log.e("1", "1");
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
             mAuth.signInWithCredential(credential)
                     .addOnSuccessListener(authResult -> {
-                     //   login();
+                        //   login();
                         navigateToSignUpActivity();
                     }).addOnFailureListener(e -> {
-                if (e.getMessage()!=null){
-                  //  Common.CreateDialogAlert(this,e.getMessage());
-                }else
-                {
+                if (e.getMessage() != null) {
+                    //  Common.CreateDialogAlert(this,e.getMessage());
+                } else {
                     //Toast.makeText(this, getString(R.string.failed), Toast.LENGTH_SHORT).show();
                 }
             });
-        }else
-            {
-                Log.e("2","2");
-                login();
-            }
+        } else {
+            Log.e("2", "2");
+            login();
+        }
 
     }
 
@@ -258,20 +250,17 @@ Log.e("gllgll",e.getMessage());
 
     private void navigateToSignUpActivity() {
         Intent intent = new Intent(this, SignUpActivity.class);
-        intent.putExtra("phone",phone);
-        intent.putExtra("phone_code",phone_code);
+        intent.putExtra("phone", phone);
+        intent.putExtra("phone_code", phone_code);
         startActivity(intent);
         finish();
     }
 
 
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (timer!=null)
-        {
+        if (timer != null) {
             timer.cancel();
         }
     }

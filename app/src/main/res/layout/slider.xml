@@ -24,8 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-                android:src="@drawable/back"
-                />
+                android:src="@drawable/back" />
         </FrameLayout>
 
     </androidx.cardview.widget.CardView>

@@ -46,10 +46,10 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
     private String phone_code = "+966";
 
     @Override
-    protected void attachBaseContext(Context newBase) {
-        Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(Language.updateResources(base, Language.getLanguage(base)));
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         binding.setLoginModel(loginModel);
         binding.setListener(this);
         Paper.init(this);
-        lang = Paper.book().read("lang", "ar");
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setLang(lang);
         binding.tvCode.setText("+966");
         binding.btnSkip.setOnClickListener(new View.OnClickListener() {
