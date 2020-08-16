@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.yourcard.R;
 
+import com.yourcard.activities_fragments.activity_home.HomeActivity;
 import com.yourcard.activities_fragments.activity_verification_code.VerificationCodeActivity;
 import com.yourcard.adapters.CountriesAdapter;
 import com.yourcard.databinding.ActivityLoginBinding;
@@ -66,13 +67,13 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         lang = Paper.book().read("lang", "ar");
         binding.setLang(lang);
         binding.tvCode.setText("+966");
-//        binding.btnSkip.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent =new Intent(LoginActivity.this, HomeActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        binding.btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.edtPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

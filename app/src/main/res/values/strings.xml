@@ -20,5 +20,9 @@
     <string name="terms_and_conditions">Terms of use</string>
     <string name="email">Email</string>
     <string name="notifications">Notifications</string>
+    <string name="ryal">ryal</string>
+    <string name="card_paly">Card paly</string>
+    <string name="more">More</string>
+    <string name="card_gifts">Card Gifts</string>
 
 </resources>
