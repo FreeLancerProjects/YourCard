@@ -87,5 +87,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v13'
     }
     implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
+    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.neonankiti:flexiblebottomnavigationview:0.1.2'
+
 
 }

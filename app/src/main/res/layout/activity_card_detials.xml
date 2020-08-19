@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="backListener"
+            type="com.yourcard.interfaces.Listeners.BackListener" />
+        <variable
+            name="cardListener"
+            type="com.yourcard.interfaces.Listeners.CardDetialsAction" />
+        <variable
+            name="lang"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray0"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                android:onClick="@{()->backListener.back()}"
+                android:orientation="horizontal"
+
+                >
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:padding="8dp"
+                    android:rotation='@{lang.equals("en")?180:0}'
+                    android:src="@drawable/ic_right_arrow"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:longClickable="false"
+                    android:text="card"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorPrimary">
+
+                            <FrameLayout
+                                android:id="@+id/flSlider"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp">
+
+                                <ImageView
+                                    android:id="@+id/pager"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/back" />
+
+
+                            </FrameLayout>
+
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="@string/total_price"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_productprice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:gravity="center_vertical"
+                                android:text="80 r.s"
+                                android:textColor="@color/second"
+                                android:textSize="15sp"
+
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/llarive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+
+                            >
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="@string/certify_your_card"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_arriveprice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:gravity="center_vertical"
+                                android:text="80 r.s"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="@string/discount"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tvvat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:gravity="center_vertical"
+                                android:text="80 %"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:background="@color/gray9" />
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="@string/conduction"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tvdelivry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+
+                                android:gravity="center_vertical"
+                                android:text="@string/automatic_conduction"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="90dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/choose_card_type"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+
+                            />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:padding="8dp"
+                            android:background="@drawable/small_rounded_btn_white">
+
+                            <LinearLayout
+                                android:id="@+id/ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:onClick="@{()->cardListener.choosecard()}"
+
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                >
+
+                                <TextView
+
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_weight="1"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:text="12000 id"
+                                    android:textColor="@color/gray9"
+                                    android:textSize="15sp" />
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:padding="8dp"
+                                    android:rotation='@{lang.equals("en")?180:0}'
+                                    android:src="@drawable/ic_right_arrow"
+                                    android:tint="@color/gray9"
+
+                                    />
+
+                            </LinearLayout>
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@color/gray9"
+                                app:layout_constraintTop_toBottomOf="@+id/ll" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintTop_toBottomOf="@+id/view"
+
+                                >
+
+                                <TextView
+
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_weight="1"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:text="12000 id"
+                                    android:textColor="@color/gray9"
+                                    android:textSize="15sp" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:clickable="false"
+                                    android:longClickable="false"
+                                    android:text="12000 px"
+                                    android:textColor="@color/gray9"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/descripsion"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+
+                            />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/small_rounded_btn_white">
+
+                            <TextView
+                                android:id="@+id/tvdesc"
+                                android:layout_width="match_parent"
+                                android:layout_height="90dp"
+                                android:textColor="@color/gray9"
+                                android:textSize="14sp"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                />
+
+                            <View
+                                android:id="@+id/view1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@color/gray9"
+                                app:layout_constraintTop_toBottomOf="@+id/tvdesc" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/show_more"
+                                android:textColor="@color/gray9"
+                                android:textSize="14sp"
+                                app:layout_constraintTop_toBottomOf="@+id/view1"
+
+                                />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ranked_cards"
+                            android:textColor="@color/gray9"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/view1"
+
+                            />
+
+                        <FrameLayout
+                            android:id="@+id/flMostSeller"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:minHeight="200dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+
+                            >
+
+                            <LinearLayout
+                                android:id="@+id/llFavoriteOffer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recViewFavoriteOffers"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/progBarOffer"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center" />
+
+                        </FrameLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:background="@color/colorPrimary"
+                            android:text="@string/buy_now"
+                            android:textColor="@color/white"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</layout>
+
+

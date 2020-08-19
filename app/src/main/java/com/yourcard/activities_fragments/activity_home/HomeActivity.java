@@ -31,10 +31,12 @@ import androidx.fragment.app.FragmentManager;
 
 import com.yourcard.R;
 
+import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivity;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
 
+import com.yourcard.activities_fragments.activity_signup.SignUpActivity;
 import com.yourcard.databinding.ActivityHomeBinding;
 import com.yourcard.language.Language;
 
@@ -57,6 +59,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import dalvik.system.InMemoryDexClassLoader;
 import io.paperdb.Paper;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -98,7 +101,13 @@ public class HomeActivity extends AppCompatActivity {
         Paper.init(this);
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         setUpBottomNavigation();
-
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -111,11 +120,11 @@ public class HomeActivity extends AppCompatActivity {
         AHBottomNavigationItem item4 = new AHBottomNavigationItem("", R.drawable.ic_checked);
 
         binding.ahBottomNav.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        binding.ahBottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        binding.ahBottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         binding.ahBottomNav.setTitleTextSizeInSp(13, 13);
         binding.ahBottomNav.setForceTint(true);
-        binding.ahBottomNav.setAccentColor(ContextCompat.getColor(this, R.color.white));
-        binding.ahBottomNav.setInactiveColor(ContextCompat.getColor(this, R.color.white));
+        binding.ahBottomNav.setAccentColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        binding.ahBottomNav.setInactiveColor(ContextCompat.getColor(this, R.color.gray9));
 
         binding.ahBottomNav.addItem(item1);
         binding.ahBottomNav.addItem(item2);
@@ -413,4 +422,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    public void showite() {
+        Intent intent = new Intent(HomeActivity.this, CardDetailsActivity.class);
+        startActivity(intent);
+    }
 }

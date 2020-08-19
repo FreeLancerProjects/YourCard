@@ -24,5 +24,16 @@
     <string name="card_paly">Card paly</string>
     <string name="more">More</string>
     <string name="card_gifts">Card Gifts</string>
+    <string name="total_price">Total Price</string>
+    <string name="certify_your_card">Certify your card</string>
+    <string name="discount">Discount</string>
+    <string name="conduction">Conduction</string>
+    <string name="automatic_conduction">Automatic Conduction</string>
+    <string name="choose_card_type">Choose Card Type</string>
+    <string name="descripsion">Descripsion</string>
+    <string name="show_more">Show More</string>
+    <string name="ranked_cards">Ranked cards</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="choose_card_type">Choose Card Type</string>
 
 </resources>

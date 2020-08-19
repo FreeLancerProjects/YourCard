@@ -38,7 +38,14 @@
             android:name=".activities_fragments.activity_home.HomeActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
-
+        <activity
+            android:name=".activities_fragments.activity_card_details.CardDetailsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.activity_card_type.CardTypeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activities_fragments.activity_login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

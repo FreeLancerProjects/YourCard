@@ -17,6 +17,9 @@ public interface Listeners {
         void checkDataValid();
 
     }
+    interface CardDetialsAction{
+        void choosecard();
+    }
 
     interface HomeActions {
         void order();
