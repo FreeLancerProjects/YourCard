@@ -1,29 +1,14 @@
 package com.yourcard.activities_fragments.activity_home;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -34,6 +19,7 @@ import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivity;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
+import com.yourcard.activities_fragments.activity_home.fragments.Fragment_profile;
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
 
 import com.yourcard.activities_fragments.activity_signup.SignUpActivity;
@@ -42,36 +28,23 @@ import com.yourcard.language.Language;
 
 import com.yourcard.models.UserModel;
 import com.yourcard.preferences.Preferences;
-import com.yourcard.remote.Api;
-import com.yourcard.share.Common;
-import com.yourcard.tags.Tags;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 
-import dalvik.system.InMemoryDexClassLoader;
 import io.paperdb.Paper;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
     private Preferences preferences;
     private FragmentManager fragmentManager;
     private Fragment_Main fragment_main;
-    //    private Fragment_Offer fragment_offer;
+        private Fragment_profile fragment_profile;
 //    private Fragment_More fragment_more;
 //    private Fragment_Department fragment_department;
     private UserModel userModel;
@@ -139,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case 1:
 
-                    //displayFragmentDepartment();
+                    displayFragmentProfile();
 
 
                     break;
@@ -182,9 +155,9 @@ public class HomeActivity extends AppCompatActivity {
 //            if (fragment_department != null && fragment_department.isAdded()) {
 //                fragmentManager.beginTransaction().hide(fragment_department).commit();
 //            }
-//            if (fragment_offer != null && fragment_offer.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_offer).commit();
-//            }
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            }
 //
 //            if (fragment_more != null && fragment_more.isAdded()) {
 //                fragmentManager.beginTransaction().hide(fragment_more).commit();
@@ -203,6 +176,39 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public void displayFragmentProfile() {
+        try {
+            if (fragment_profile == null) {
+                fragment_profile = Fragment_profile.newInstance();
+            }
+
+
+//            if (fragment_cart != null && fragment_cart.isAdded()) {
+//                fragmentManager.beginTransaction().hide(fragment_cart).commit();
+//            }
+//            if (fragment_department != null && fragment_department.isAdded()) {
+//                fragmentManager.beginTransaction().hide(fragment_department).commit();
+//            }
+            if (fragment_main != null && fragment_main.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_main).commit();
+            }
+//
+//            if (fragment_more != null && fragment_more.isAdded()) {
+//                fragmentManager.beginTransaction().hide(fragment_more).commit();
+//            }
+            if (fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_profile).commit();
+
+            } else {
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_profile, "fragment_offer").addToBackStack("fragment_offer").commit();
+
+            }
+            //  binding.setTitle(getString(R.string.home));
+            updateBottomNavigationPosition(1);
+        } catch (Exception e) {
+        }
+
+    }
 
 //    private void updateTokenFireBase() {
 //

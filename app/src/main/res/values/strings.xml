@@ -34,9 +34,15 @@
     <string name="show_more">Show More</string>
     <string name="ranked_cards">Ranked cards</string>
     <string name="buy_now">Buy Now</string>
-    <string name="choose_card_type">Choose Card Type</string>
     <string name="my_orders">My Orders</string>
     <string name="waiting">Waiting</string>
     <string name="completed">Completed</string>
+    <string name="bank_accounts">Bank Accounts</string>
+    <string name="my_cards">My Cards</string>
+    <string name="favourite">Favourites</string>
+    <string name="recharge">Recharge</string>
+    <string name="about_app">About App</string>
+    <string name="logout">Logout</string>
+    <string name="balance">Balance</string>
 
 </resources>
