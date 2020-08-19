@@ -35,5 +35,8 @@
     <string name="ranked_cards">Ranked cards</string>
     <string name="buy_now">Buy Now</string>
     <string name="choose_card_type">Choose Card Type</string>
+    <string name="my_orders">My Orders</string>
+    <string name="waiting">Waiting</string>
+    <string name="completed">Completed</string>
 
 </resources>
