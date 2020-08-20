@@ -12,6 +12,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 import com.yourcard.databinding.CardRowBinding;
@@ -53,14 +55,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         CardAdapter cardAdapter = new CardAdapter(list.get(position).getMenu_images(), context);
         myHolder.binding.recViewAccessories.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
         myHolder.binding.recViewAccessories.setAdapter(cardAdapter);
-        Runnable startAnimation = new Runnable() {
-            @Override
-            public void run() {
-                setAnimation(myHolder.itemView, position);
-
-            }
-        };
-        myHolder.itemView.postDelayed(startAnimation, 200);
+        YoYo.with(Techniques.SlideInRight)
+                .duration(700)
+                .repeat(1)
+                .playOn(holder.itemView);
     }
 
     private void setAnimation(View viewToAnimate, int position) {
