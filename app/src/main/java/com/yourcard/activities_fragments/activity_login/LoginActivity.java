@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
@@ -56,6 +58,10 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         initView();
+        YoYo.with(Techniques.RollIn)
+                .duration(700)
+                .repeat(5)
+                .playOn(binding.getRoot());
     }
 
     private void initView() {
@@ -70,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         binding.btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(LoginActivity.this, HomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

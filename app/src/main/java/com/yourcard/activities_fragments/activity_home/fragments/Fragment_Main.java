@@ -1,19 +1,16 @@
 package com.yourcard.activities_fragments.activity_home.fragments;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,29 +20,20 @@ import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 
 import com.yourcard.adapters.CardAdapter;
+import com.yourcard.adapters.CategoryAdapter;
 import com.yourcard.adapters.SlidingMenuImage_Adapter;
 import com.yourcard.databinding.FragmentMainBinding;
 
 import com.yourcard.models.SingleRestaurantModel;
 import com.yourcard.models.UserModel;
 import com.yourcard.preferences.Preferences;
-import com.yourcard.remote.Api;
-import com.yourcard.share.Common;
-import com.yourcard.tags.Tags;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import io.paperdb.Paper;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static android.app.Activity.RESULT_OK;
 
 public class Fragment_Main extends Fragment {
     private HomeActivity activity;
@@ -59,8 +47,8 @@ public class Fragment_Main extends Fragment {
     private boolean isLoading = false;
     private UserModel userModel;
     private SlidingMenuImage_Adapter slidingImage__adapter;
-    private List<SingleRestaurantModel.MenuImages> menuImages;
-    private CardAdapter cardAdapter;
+    private List<SingleRestaurantModel> menuImages;
+    private CategoryAdapter categoryAdapter;
 
     public static Fragment_Main newInstance() {
         return new Fragment_Main();
@@ -84,18 +72,33 @@ public class Fragment_Main extends Fragment {
     }
 
     private void initData() {
-        menuImages.add(new SingleRestaurantModel.MenuImages());
-        menuImages.add(new SingleRestaurantModel.MenuImages());
-        menuImages.add(new SingleRestaurantModel.MenuImages());
-        menuImages.add(new SingleRestaurantModel.MenuImages());
-        menuImages.add(new SingleRestaurantModel.MenuImages());
-        menuImages.add(new SingleRestaurantModel.MenuImages());
+        menuImages.add(new SingleRestaurantModel());
+        menuImages.add(new SingleRestaurantModel());
+        menuImages.add(new SingleRestaurantModel());
+        menuImages.add(new SingleRestaurantModel());
+        menuImages.add(new SingleRestaurantModel());
+        menuImages.add(new SingleRestaurantModel());
+        List<SingleRestaurantModel.MenuImages> menuImagesList=new ArrayList<>();
+       menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        for (int i = 0; i < menuImages.size(); i++) {
+            
+           menuImages.get(i).setMenu_images(menuImagesList);
+
+        }
         slidingImage__adapter = new SlidingMenuImage_Adapter(activity, menuImages);
         binding.pager.setAdapter(slidingImage__adapter);
         binding.progBarSlider.setVisibility(View.GONE);
-        binding.progBarAccessories.setVisibility(View.GONE);
         binding.progBarOffer.setVisibility(View.GONE);
-        cardAdapter.notifyDataSetChanged();
+        binding.recViewFavoriteOffers.scheduleLayoutAnimation();
+        categoryAdapter.notifyDataSetChanged();
+
 
     }
 
@@ -109,12 +112,9 @@ public class Fragment_Main extends Fragment {
 
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         binding.progBarOffer.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-        binding.progBarAccessories.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-        cardAdapter = new CardAdapter(menuImages, activity);
-        binding.recViewAccessories.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
-        binding.recViewFavoriteOffers.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
-        binding.recViewFavoriteOffers.setAdapter(cardAdapter);
-        binding.recViewAccessories.setAdapter(cardAdapter);
+        categoryAdapter = new CategoryAdapter(menuImages, activity);
+        binding.recViewFavoriteOffers.setLayoutManager(new LinearLayoutManager(activity));
+        binding.recViewFavoriteOffers.setAdapter(categoryAdapter);
 
     }
 

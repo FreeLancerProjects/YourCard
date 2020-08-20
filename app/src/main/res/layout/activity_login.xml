@@ -36,6 +36,7 @@
             >
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
@@ -128,7 +129,8 @@
                                 android:src="@drawable/ic_right_arrow"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="RtlCompat" />
 
                             <View
                                 android:layout_width="match_parent"

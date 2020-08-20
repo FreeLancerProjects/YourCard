@@ -117,52 +117,6 @@
                         android:layout_gravity="center" />
                 </FrameLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="8dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintStart_toStartOf="parent"
-
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        tools:ignore="RtlCompat">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_email"
-
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/card_paly"
-                            android:textColor="@color/black"
-                            android:textSize="13sp"
-
-                            tools:ignore="RtlCompat" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_name2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/more"
-                        android:textColor="@color/second"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        tools:ignore="RtlCompat" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <FrameLayout
                     android:id="@+id/flMostSeller"
@@ -198,84 +152,6 @@
 
                 </FrameLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="8dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintStart_toStartOf="parent"
-
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        tools:ignore="RtlCompat">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_email"
-
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/card_gifts"
-                            android:textColor="@color/black"
-                            android:textSize="13sp"
-
-                            tools:ignore="RtlCompat" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/more"
-                        android:textColor="@color/second"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        tools:ignore="RtlCompat" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <FrameLayout
-                    android:id="@+id/flMostRate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:minHeight="200dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-
-
-                    >
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recViewAccessories"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp" />
-
-                    </LinearLayout>
-
-                    <ProgressBar
-                        android:id="@+id/progBarAccessories"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center" />
-                </FrameLayout>
 
 
             </LinearLayout>
@@ -284,3 +160,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+

@@ -13,22 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
-import com.yourcard.activities_fragments.activity_login.LoginActivity;
 import com.yourcard.databinding.CardRowBinding;
-import com.yourcard.databinding.CountriesRowBinding;
-import com.yourcard.models.CountryModel;
 import com.yourcard.models.SingleRestaurantModel;
 
 import java.util.List;
 
-public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SubCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<SingleRestaurantModel.MenuImages> list;
     private Context context;
     private LayoutInflater inflater;
     private int lastPosition = -1;
 
-    public CardAdapter(List<SingleRestaurantModel.MenuImages> list, Context context) {
+    public SubCardAdapter(List<SingleRestaurantModel.MenuImages> list, Context context) {
         this.list = list;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -59,23 +56,23 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
 
         });
-//        Runnable startAnimation = new Runnable() {
-//            @Override
-//            public void run() {
-//                setAnimation(myHolder.itemView, position);
-//
-//            }
-//        };
-//        myHolder.itemView.postDelayed(startAnimation, 200);
+        Runnable startAnimation = new Runnable() {
+            @Override
+            public void run() {
+                setAnimation(myHolder.itemView, position);
+
+            }
+        };
+        myHolder.itemView.postDelayed(startAnimation, 200);
     }
 
     private void setAnimation(View viewToAnimate, int position) {
-//        // If the bound view wasn't previously displayed on screen, it's animated
-//        if (position > lastPosition) {
-//            Animation animation = AnimationUtils.loadAnimation(context, R.anim.top_down_anim);
-//            viewToAnimate.startAnimation(animation);
-//            lastPosition = position;
-//        }
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.top_down_anim);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override

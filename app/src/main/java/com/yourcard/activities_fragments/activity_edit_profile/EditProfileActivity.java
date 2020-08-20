@@ -1,4 +1,4 @@
-package com.yourcard.activities_fragments.activity_card_type;
+package com.yourcard.activities_fragments.activity_edit_profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.yourcard.R;
+import com.yourcard.activities_fragments.activity_card_type.CardTypeActivity;
 import com.yourcard.databinding.ActivityCardDetialsBinding;
-import com.yourcard.databinding.ActivityCardTypeBinding;
+import com.yourcard.databinding.ActivityEditProfileBinding;
 import com.yourcard.interfaces.Listeners;
 import com.yourcard.language.Language;
 
@@ -20,8 +21,8 @@ import io.paperdb.Paper;
 
 //import com.yourcard.Animate.CircleAnimationUtil;
 
-public class CardTypeActivity extends AppCompatActivity implements Listeners.BackListener, Listeners.CardDetialsAction {
-    private ActivityCardTypeBinding binding;
+public class EditProfileActivity extends AppCompatActivity implements Listeners.BackListener, Listeners.CardDetialsAction {
+    private ActivityEditProfileBinding binding;
     private String lang;
 
     @Override
@@ -32,7 +33,7 @@ public class CardTypeActivity extends AppCompatActivity implements Listeners.Bac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_card_type);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
 
         initView();
 
@@ -90,7 +91,7 @@ public class CardTypeActivity extends AppCompatActivity implements Listeners.Bac
 
     @Override
     public void choosecard() {
-        Intent intent = new Intent(CardTypeActivity.this, CardTypeActivity.class);
+        Intent intent = new Intent(EditProfileActivity.this, CardTypeActivity.class);
         startActivity(intent);
     }
 }

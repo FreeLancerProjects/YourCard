@@ -44,5 +44,11 @@
     <string name="about_app">About App</string>
     <string name="logout">Logout</string>
     <string name="balance">Balance</string>
+    <string name="setting">Setting</string>
+    <string name="language">Language</string>
+    <string name="banks">Banks</string>
+    <string name="value">Value</string>
+    <string name="tax">Tax</string>
+    <string name="total">Total</string>
 
 </resources>

@@ -24,11 +24,11 @@ import java.util.List;
 public class SlidingMenuImage_Adapter extends PagerAdapter {
 
 
-    List<SingleRestaurantModel.MenuImages> IMAGES;
+    List<SingleRestaurantModel> IMAGES;
     private LayoutInflater inflater;
     Context context;
 
-    public SlidingMenuImage_Adapter(Context context, List<SingleRestaurantModel.MenuImages> IMAGES) {
+    public SlidingMenuImage_Adapter(Context context, List<SingleRestaurantModel> IMAGES) {
         this.context = context;
         this.IMAGES = IMAGES;
         inflater = LayoutInflater.from(context);

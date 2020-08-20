@@ -197,6 +197,10 @@ public class SingleRestaurantModel implements Serializable {
         return menu_images;
     }
 
+    public void setMenu_images(List<MenuImages> menu_images) {
+        this.menu_images = menu_images;
+    }
+
     public List<RestaurantImages> getRestaurant_images() {
         return restaurant_images;
     }

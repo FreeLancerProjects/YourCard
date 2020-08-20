@@ -66,23 +66,23 @@ public class Fragment_profile extends Fragment {
         preferences = Preferences.getInstance();
         Paper.init(activity);
 
-        binding.appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                //  Vertical offset == 0 indicates appBar is fully expanded.
-                Log.e("l;ll",Math.abs(verticalOffset)+"");
-                if (Math.abs(verticalOffset) > 250) {
-                    binding.llshow.setVisibility(View.VISIBLE);
-                    binding.llshow2.setVisibility(View.GONE);
-
-                } else {
-                    binding.llshow.setVisibility(View.GONE);
-                    binding.llshow2.setVisibility(View.VISIBLE);
-
-
-                }
-            }
-        });
+//        binding.appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                //  Vertical offset == 0 indicates appBar is fully expanded.
+//                Log.e("l;ll",Math.abs(verticalOffset)+"");
+//                if (Math.abs(verticalOffset) > 200) {
+//                    binding.llshow.setVisibility(View.VISIBLE);
+//                    binding.llshow2.setVisibility(View.GONE);
+//
+//                } else {
+//                    binding.llshow.setVisibility(View.GONE);
+//                    binding.llshow2.setVisibility(View.VISIBLE);
+//
+//
+//                }
+//            }
+//        });
     }
 
 
