@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         initView();
         YoYo.with(Techniques.RollIn)
                 .duration(700)
-                .repeat(5)
+                .repeat(1)
                 .playOn(binding.getRoot());
     }
 
