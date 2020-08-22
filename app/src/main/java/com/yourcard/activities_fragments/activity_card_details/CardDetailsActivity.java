@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_card_type.CardTypeActivity;
@@ -49,6 +51,9 @@ import retrofit2.Response;
 public class CardDetailsActivity extends AppCompatActivity implements Listeners.BackListener, Listeners.CardDetialsAction {
     private ActivityCardDetialsBinding binding;
     private String lang;
+    private BottomSheetBehavior behavior;
+    private ImageView imclose;
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(Language.updateResources(base, Language.getLanguage(base)));
@@ -63,9 +68,14 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
         initView();
 
 
+        setUpBottomSheet();
     }
 
+    private void setUpBottomSheet() {
 
+        behavior = BottomSheetBehavior.from(findViewById(R.id.root));
+
+    }
 
 
     private void initView() {
@@ -74,8 +84,16 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
 
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setBackListener(this);
+        binding.setCardListener(this);
         binding.setLang(lang);
+imclose=findViewById(R.id.imclose);
+imclose.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
+    }
+});
 
     }
 
@@ -85,8 +103,13 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
 //        if (isDataAdded) {
 //            setResult(RESULT_OK);
 //        }
+        if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+
+            behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        }
+        else {
         finish();
-    }
+    }}
 
 
     @Override
@@ -116,7 +139,10 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
 
     @Override
     public void choosecard() {
-        Intent intent = new Intent(CardDetailsActivity.this, CardTypeActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(CardDetailsActivity.this, CardTypeActivity.class);
+//        startActivity(intent);
+
+        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
     }
 }

@@ -53,12 +53,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         MyHolder myHolder = (MyHolder) holder;
         CardAdapter cardAdapter = new CardAdapter(list.get(position).getMenu_images(), context);
-        myHolder.binding.recViewAccessories.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
+        myHolder.binding.recViewAccessories.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
         myHolder.binding.recViewAccessories.setAdapter(cardAdapter);
-        YoYo.with(Techniques.SlideInRight)
-                .duration(700)
-                .repeat(1)
-                .playOn(holder.itemView);
+//        YoYo.with(Techniques.SlideInRight)
+//                .duration(700)
+//                .repeat(1)
+//                .playOn(holder.itemView.getRootView());
+        setAnimation(holder.itemView, position);
+
     }
 
     private void setAnimation(View viewToAnimate, int position) {

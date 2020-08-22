@@ -21,6 +21,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 
 import com.yourcard.databinding.ActivitySignUpBinding;
@@ -64,6 +66,10 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
         getDataFromIntent();
         initView();
+        if(savedInstanceState==null){   YoYo.with(Techniques.Bounce)
+                .duration(700)
+                .repeat(0)
+                .playOn(binding.getRoot());}
 
     }
 

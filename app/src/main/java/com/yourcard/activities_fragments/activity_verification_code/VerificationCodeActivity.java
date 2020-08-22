@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_signup.SignUpActivity;
@@ -59,7 +61,12 @@ public class VerificationCodeActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_verification_code);
         getDataFromIntent();
         initView();
-
+        if (savedInstanceState == null) {
+            YoYo.with(Techniques.BounceIn)
+                    .duration(700)
+                    .repeat(0)
+                    .playOn(binding.getRoot());
+        }
     }
 
     private void getDataFromIntent() {

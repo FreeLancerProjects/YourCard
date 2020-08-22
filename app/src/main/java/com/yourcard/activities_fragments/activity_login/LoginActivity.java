@@ -58,10 +58,11 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         initView();
+        if(savedInstanceState==null){
         YoYo.with(Techniques.RollIn)
                 .duration(700)
-                .repeat(1)
-                .playOn(binding.getRoot());
+                .repeat(0)
+                .playOn(binding.getRoot());}
     }
 
     private void initView() {

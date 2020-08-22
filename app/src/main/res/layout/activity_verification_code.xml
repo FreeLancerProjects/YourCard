@@ -24,15 +24,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="50dp"
                     android:layout_marginRight="15dp"
-                    android:layout_marginBottom="50dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp">
@@ -59,11 +59,10 @@
                             android:id="@+id/tvTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="15dp"
                             android:text="@string/enter_verfication_code"
                             android:textColor="@color/gray8"
                             android:textSize="18sp"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/logo" />
 
@@ -71,7 +70,7 @@
                             android:id="@+id/edtCode"
                             android:layout_width="0dp"
                             android:layout_height="45dp"
-                            android:layout_marginTop="50dp"
+                            android:layout_marginTop="70dp"
                             android:background="@drawable/small_rounded_btn_white"
                             android:hint="@string/confirmation_code"
                             android:inputType="number"
@@ -93,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="70dp"
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="50dp"
                             app:cardBackgroundColor="@color/colorPrimary"
@@ -112,6 +111,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/small_rounded_btn_primary"
                                 android:text="@string/confirm"
+
                                 android:textColor="@color/white"
                                 android:textSize="15sp"
 
