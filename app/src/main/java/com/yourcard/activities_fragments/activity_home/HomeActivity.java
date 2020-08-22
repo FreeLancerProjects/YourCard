@@ -17,8 +17,10 @@ import androidx.fragment.app.FragmentManager;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivity;
+import com.yourcard.activities_fragments.activity_home.fragments.Fragment_EditProfile;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
+import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Order;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_profile;
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
 
@@ -44,9 +46,9 @@ public class HomeActivity extends AppCompatActivity {
     private Preferences preferences;
     private FragmentManager fragmentManager;
     private Fragment_Main fragment_main;
-        private Fragment_profile fragment_profile;
-//    private Fragment_More fragment_more;
-//    private Fragment_Department fragment_department;
+    private Fragment_profile fragment_profile;
+    private Fragment_EditProfile fragment_edit_profile;
+    private Fragment_Order fragment_Order;
     private UserModel userModel;
     private String lang;
     private String token;
@@ -114,16 +116,14 @@ public class HomeActivity extends AppCompatActivity {
 
                     displayFragmentProfile();
 
-
                     break;
                 case 2:
 
-                    //displayFragmentOffer();
-
+                    displayFragmentOrder();
 
                     break;
                 case 3:
-                    //displayFragmentCart();
+                    displayFragmentEditProfile();
                     break;
 
             }
@@ -149,19 +149,16 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-//            if (fragment_cart != null && fragment_cart.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_cart).commit();
-//            }
-//            if (fragment_department != null && fragment_department.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_department).commit();
-//            }
+            if (fragment_Order != null && fragment_Order.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            }
             if (fragment_profile != null && fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
-//
-//            if (fragment_more != null && fragment_more.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_more).commit();
-//            }
+
+            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            }
             if (fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_main).commit();
 
@@ -183,19 +180,16 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-//            if (fragment_cart != null && fragment_cart.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_cart).commit();
-//            }
-//            if (fragment_department != null && fragment_department.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_department).commit();
-//            }
+            if (fragment_Order != null && fragment_Order.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            }
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
             }
-//
-//            if (fragment_more != null && fragment_more.isAdded()) {
-//                fragmentManager.beginTransaction().hide(fragment_more).commit();
-//            }
+
+            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            }
             if (fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_profile).commit();
 
@@ -205,6 +199,68 @@ public class HomeActivity extends AppCompatActivity {
             }
             //  binding.setTitle(getString(R.string.home));
             updateBottomNavigationPosition(1);
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void displayFragmentOrder() {
+        try {
+            if (fragment_Order == null) {
+                fragment_Order = Fragment_Order.newInstance();
+            }
+
+
+            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            }
+            if (fragment_main != null && fragment_main.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_main).commit();
+            }
+
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            }
+            if (fragment_Order.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_Order).commit();
+
+            } else {
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_Order, "fragment_Order").addToBackStack("fragment_Order").commit();
+
+            }
+            //  binding.setTitle(getString(R.string.home));
+            updateBottomNavigationPosition(2);
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void displayFragmentEditProfile() {
+        try {
+            if (fragment_edit_profile == null) {
+                fragment_edit_profile = Fragment_EditProfile.newInstance();
+            }
+
+
+            if (fragment_Order != null && fragment_Order.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            }
+            if (fragment_main != null && fragment_main.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_main).commit();
+            }
+
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            }
+            if (fragment_edit_profile.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_edit_profile).commit();
+
+            } else {
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_edit_profile, "fragment_edit_profile").addToBackStack("fragment_edit_profile").commit();
+
+            }
+            //  binding.setTitle(getString(R.string.home));
+            updateBottomNavigationPosition(3);
         } catch (Exception e) {
         }
 
