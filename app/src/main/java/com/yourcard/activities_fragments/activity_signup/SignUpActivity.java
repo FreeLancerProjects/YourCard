@@ -67,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
         getDataFromIntent();
         initView();
         if(savedInstanceState==null){   YoYo.with(Techniques.Bounce)
-                .duration(700)
+                .duration(1000)
                 .repeat(0)
                 .playOn(binding.getRoot());}
 

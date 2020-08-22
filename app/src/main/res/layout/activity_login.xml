@@ -31,19 +31,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:orientation="vertical"
-android:gravity="center"
-            >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-
-                app:cardBackgroundColor="@color/white"
                 android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+
+                android:layout_marginRight="15dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
 
@@ -68,82 +67,89 @@ android:gravity="center"
 
                             />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="70dp"
+                            android:layout_marginRight="8dp"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="8dp">
 
-                            android:background="@drawable/small_rounded_btn_white"
-
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/imageFlag"
-                                android:layout_width="35dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginEnd="5dp"
-                                android:onClick="@{()->listener.showCountryDialog()}"
-                                android:src="@drawable/flag_sa"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/tvCode"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/imageFlag"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <EditText
-                                android:id="@+id/edtPhone"
-                                error="@{loginModel.error_phone}"
-                                android:layout_width="0dp"
-                                android:layout_height="40dp"
-                                android:layout_margin="5dp"
-                                android:background="@color/white"
-                                android:hint="@string/phone"
-                                android:inputType="number"
-                                android:paddingLeft="5dp"
-                                android:paddingRight="5dp"
-                                android:text="@={loginModel.phone}"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/gray3"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/arrow"
-                                app:layout_constraintStart_toEndOf="@id/tvCode"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/arrow"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:onClick="@{()->listener.showCountryDialog()}"
-                                android:padding="2dp"
-                                android:layout_marginEnd="8dp"
-                                android:rotation='@{lang.equals("ar")?180:0}'
-                                android:src="@drawable/ic_right_arrow"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:ignore="RtlCompat" />
-
-                            <View
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@color/white"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/edtPhone" />
+                                android:layout_height="wrap_content"
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                >
+
+                                <ImageView
+                                    android:id="@+id/imageFlag"
+                                    android:layout_width="35dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:onClick="@{()->listener.showCountryDialog()}"
+                                    android:src="@drawable/flag_sa"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/tvCode"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/imageFlag"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/edtPhone"
+                                    error="@{loginModel.error_phone}"
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_margin="5dp"
+                                    android:background="@color/white"
+                                    android:hint="@string/phone"
+                                    android:inputType="number"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:text="@={loginModel.phone}"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray3"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/arrow"
+                                    app:layout_constraintStart_toEndOf="@id/tvCode"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/arrow"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:onClick="@{()->listener.showCountryDialog()}"
+                                    android:padding="2dp"
+                                    android:rotation='@{lang.equals("ar")?180:0}'
+                                    android:src="@drawable/ic_right_arrow"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="RtlCompat" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@color/white"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/edtPhone" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
 
                         <View
                             android:layout_width="match_parent"
