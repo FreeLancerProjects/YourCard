@@ -55,5 +55,7 @@
     <string name="copoun">Copoun</string>
     <string name="quantity">Quantity</string>
     <string name="confirm">Confirm</string>
+    <string name="recharge">Recharge</string>
+    <string name="my_credit">My credit</string>
 
 </resources>

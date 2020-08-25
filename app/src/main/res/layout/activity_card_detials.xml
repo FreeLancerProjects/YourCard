@@ -391,8 +391,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
+                                android:layout_margin="10dp"
+
                                 android:gravity="center_vertical"
                                 android:text="@string/descripsion"
                                 android:textColor="@color/black"

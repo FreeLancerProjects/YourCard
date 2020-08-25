@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivity;
-import com.yourcard.activities_fragments.activity_home.fragments.Fragment_EditProfile;
+import com.yourcard.activities_fragments.activity_home.fragments.FragmentDiscountCoupons;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Order;
@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private Fragment_Main fragment_main;
     private Fragment_profile fragment_profile;
-    private Fragment_EditProfile fragment_edit_profile;
+    private FragmentDiscountCoupons fragmentdiscountcoupons;
     private Fragment_Order fragment_Order;
     private UserModel userModel;
     private String lang;
@@ -156,8 +156,8 @@ public class HomeActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
 
-            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            if (fragmentdiscountcoupons != null && fragmentdiscountcoupons.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragmentdiscountcoupons).commit();
             }
             if (fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_main).commit();
@@ -187,8 +187,8 @@ public class HomeActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
             }
 
-            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            if (fragmentdiscountcoupons != null && fragmentdiscountcoupons.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragmentdiscountcoupons).commit();
             }
             if (fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_profile).commit();
@@ -211,8 +211,8 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            if (fragment_edit_profile != null && fragment_edit_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_edit_profile).commit();
+            if (fragmentdiscountcoupons != null && fragmentdiscountcoupons.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragmentdiscountcoupons).commit();
             }
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
@@ -237,8 +237,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void displayFragmentEditProfile() {
         try {
-            if (fragment_edit_profile == null) {
-                fragment_edit_profile = Fragment_EditProfile.newInstance();
+            if (fragmentdiscountcoupons == null) {
+                fragmentdiscountcoupons = FragmentDiscountCoupons.newInstance();
             }
 
 
@@ -252,11 +252,11 @@ public class HomeActivity extends AppCompatActivity {
             if (fragment_profile != null && fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
-            if (fragment_edit_profile.isAdded()) {
-                fragmentManager.beginTransaction().show(fragment_edit_profile).commit();
+            if (fragmentdiscountcoupons.isAdded()) {
+                fragmentManager.beginTransaction().show(fragmentdiscountcoupons).commit();
 
             } else {
-                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_edit_profile, "fragment_edit_profile").addToBackStack("fragment_edit_profile").commit();
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragmentdiscountcoupons, "fragment_discount_copoun").addToBackStack("fragment_discount_copoun").commit();
 
             }
             //  binding.setTitle(getString(R.string.home));

@@ -104,7 +104,7 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
 
             }
         });
-
+initData();
     }
 
     private void initData() {
