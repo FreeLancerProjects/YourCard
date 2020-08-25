@@ -111,6 +111,7 @@ public class VerificationCodeActivity extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                 smsCode = phoneAuthCredential.getSmsCode();
+                binding.edtCode.setText(smsCode);
                 checkValidCode(smsCode);
             }
 
