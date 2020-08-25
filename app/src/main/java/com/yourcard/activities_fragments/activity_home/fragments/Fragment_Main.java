@@ -1,5 +1,6 @@
 package com.yourcard.activities_fragments.activity_home.fragments;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yourcard.R;
+import com.yourcard.activities_fragments.activity_cart.CartActivity;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 
 import com.yourcard.adapters.CardAdapter;
@@ -115,6 +117,13 @@ public class Fragment_Main extends Fragment {
         categoryAdapter = new CategoryAdapter(menuImages, activity);
         binding.recViewFavoriteOffers.setLayoutManager(new LinearLayoutManager(activity));
         binding.recViewFavoriteOffers.setAdapter(categoryAdapter);
+        binding.flCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(activity, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

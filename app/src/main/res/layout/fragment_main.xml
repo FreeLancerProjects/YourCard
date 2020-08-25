@@ -71,8 +71,53 @@
                 android:text="@string/ryal"
                 android:textColor="@color/black"
                 android:textSize="13sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <FrameLayout
+                android:id="@+id/flCart"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:civ_border_width="0dp"
+                    app:civ_circle_background_color="@color/circle_bg"
+                    android:src="@color/circle_bg"
+
+                    />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_cart"
+                    android:tint="@color/white"
+                    />
+
+                <TextView
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:background="@drawable/circle_not_bg"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:longClickable="false"
+                    android:singleLine="true"
+                    android:textColor="@color/second"
+                    android:textSize="12sp"
+                    android:layout_margin="2dp"
+                    />
+
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

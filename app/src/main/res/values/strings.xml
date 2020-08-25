@@ -7,7 +7,6 @@
     <string name="register">Register</string>
     <string name="complete_register">Complete Register</string>
     <string name="verfication_code">Verfication Code</string>
-    <string name="confirm">Confirm</string>
     <string name="field_required">Fiels Required</string>
     <string name="country_code">Country Code</string>
     <string name="sign_in">Sign In</string>
@@ -54,5 +53,7 @@
     <string name="pay">Pay</string>
     <string name="cart_empty">Cart Empty</string>
     <string name="copoun">Copoun</string>
+    <string name="quantity">Quantity</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

@@ -24,10 +24,13 @@ import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_card_type.CardTypeActivity;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
+import com.yourcard.adapters.SlidingMenuImage_Adapter;
+import com.yourcard.adapters.TypeAdapter;
 import com.yourcard.databinding.ActivityCardDetialsBinding;
 import com.yourcard.interfaces.Listeners;
 import com.yourcard.language.Language;
 
+import com.yourcard.models.SingleRestaurantModel;
 import com.yourcard.models.UserModel;
 import com.yourcard.preferences.Preferences;
 import com.yourcard.remote.Api;
@@ -53,6 +56,9 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
     private String lang;
     private BottomSheetBehavior behavior;
     private ImageView imclose;
+    private RecyclerView reccardtypes;
+    private List<SingleRestaurantModel.MenuImages> menuImagesList;
+    private TypeAdapter typeAdapter;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -81,22 +87,39 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
     private void initView() {
 
         Paper.init(this);
-
+        menuImagesList = new ArrayList<>();
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setBackListener(this);
         binding.setCardListener(this);
         binding.setLang(lang);
-imclose=findViewById(R.id.imclose);
-imclose.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        imclose = findViewById(R.id.imclose);
+        reccardtypes = findViewById(R.id.recViewcardtype);
+        typeAdapter = new TypeAdapter(menuImagesList, this);
+        reccardtypes.setLayoutManager(new LinearLayoutManager(this));
+        reccardtypes.setAdapter(typeAdapter);
+        imclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+            }
+        });
 
     }
-});
+
+    private void initData() {
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
+
+
+        typeAdapter.notifyDataSetChanged();
+
 
     }
-
 
     @Override
     public void back() {
@@ -106,10 +129,10 @@ imclose.setOnClickListener(new View.OnClickListener() {
         if (behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
 
             behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        } else {
+            finish();
         }
-        else {
-        finish();
-    }}
+    }
 
 
     @Override
