@@ -41,10 +41,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    app:layout_scrollFlags="scroll|enterAlways"
-                    android:paddingRight="8dp"
                     android:paddingLeft="8dp"
-                    >
+                    android:paddingRight="8dp"
+                    app:layout_scrollFlags="scroll|enterAlways">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="80dp"
@@ -442,8 +441,8 @@
                     android:gravity="center_vertical"
                     android:onClick="@{()->listener.favorite()}"
                     android:orientation="horizontal"
-                    android:weightSum="1"
                     android:visibility="gone"
+                    android:weightSum="1"
 
                     >
 
@@ -487,8 +486,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1px"
                     android:background="@color/gray9"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
