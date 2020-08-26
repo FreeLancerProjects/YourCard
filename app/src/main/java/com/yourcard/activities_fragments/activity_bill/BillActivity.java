@@ -3,6 +3,7 @@ package com.yourcard.activities_fragments.activity_bill;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_card_type.CardTypeActivity;
+import com.yourcard.activities_fragments.activitypaytype.PayTypeActivity;
 import com.yourcard.databinding.ActivityBillBinding;
 import com.yourcard.databinding.ActivityEditProfileBinding;
 import com.yourcard.interfaces.Listeners;
@@ -53,7 +55,13 @@ public class BillActivity extends AppCompatActivity implements Listeners.BackLis
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setBackListener(this);
         binding.setLang(lang);
-
+        binding.btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BillActivity.this, PayTypeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

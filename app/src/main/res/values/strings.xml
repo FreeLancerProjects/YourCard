@@ -58,5 +58,6 @@
     <string name="my_credit">My credit</string>
     <string name="my_favourites">My Favourites</string>
     <string name="bill">bill</string>
+    <string name="pay_type">Pay Type</string>
 
 </resources>
