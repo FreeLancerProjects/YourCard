@@ -50,7 +50,7 @@ public class Fragment_Favourite extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView();
         YoYo.with(Techniques.SlideInUp)
-                .duration(1500)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
 
@@ -58,7 +58,7 @@ public class Fragment_Favourite extends Fragment {
 
 
     private void initView() {
-        favouriteDataList=new ArrayList<>();
+        favouriteDataList = new ArrayList<>();
         activity = (HomeActivity) getActivity();
         preferences = Preferences.getInstance();
         Paper.init(activity);

@@ -73,7 +73,7 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_card_detials);
         YoYo.with(Techniques.SlideInUp)
-                .duration(1500)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
@@ -109,7 +109,7 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
 
             }
         });
-initData();
+        initData();
     }
 
     private void initData() {

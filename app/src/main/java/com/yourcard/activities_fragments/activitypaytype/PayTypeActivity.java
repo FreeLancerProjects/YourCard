@@ -36,15 +36,13 @@ public class PayTypeActivity extends AppCompatActivity implements Listeners.Back
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_pay);
         YoYo.with(Techniques.ZoomInDown)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
 
 
     }
-
-
 
 
     private void initView() {
@@ -62,7 +60,7 @@ public class PayTypeActivity extends AppCompatActivity implements Listeners.Back
 //            setResult(RESULT_OK);
 //        }
 
-            finish();
+        finish();
 
     }
 

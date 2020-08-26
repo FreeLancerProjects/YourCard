@@ -39,7 +39,7 @@ public class BillActivity extends AppCompatActivity implements Listeners.BackLis
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bill);
         YoYo.with(Techniques.SlideInUp)
-                .duration(1500)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();

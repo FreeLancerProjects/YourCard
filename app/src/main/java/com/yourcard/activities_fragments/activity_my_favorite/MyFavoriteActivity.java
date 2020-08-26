@@ -49,7 +49,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
     private LinearLayoutManager manager;
     private UserModel userModel;
     private Preferences preferences;
- 
+
     private List<SingleRestaurantModel.MenuImages> favouriteDataList;
     private FavouriteProduct_Adapter favouriteProduct_adapter;
 
@@ -64,7 +64,7 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my_favorite);
         YoYo.with(Techniques.ZoomIn)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
@@ -191,10 +191,9 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
     }
 
 
-
     @Override
     public void back() {
-    
+
 
         finish();
     }

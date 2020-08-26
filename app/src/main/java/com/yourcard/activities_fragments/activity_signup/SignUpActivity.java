@@ -55,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
     private Preferences preferences;
     private String phone;
     private String phone_code;
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(Language.updateResources(base, Language.getLanguage(base)));
@@ -66,10 +67,12 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
         getDataFromIntent();
         initView();
-        if(savedInstanceState==null){   YoYo.with(Techniques.Bounce)
-                .duration(1000)
-                .repeat(0)
-                .playOn(binding.getRoot());}
+        if (savedInstanceState == null) {
+            YoYo.with(Techniques.Bounce)
+                    .duration(900)
+                    .repeat(0)
+                    .playOn(binding.getRoot());
+        }
 
     }
 
@@ -93,7 +96,6 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
     }
 
 
-
     @Override
     public void checkDataValid() {
 
@@ -108,16 +110,10 @@ public class SignUpActivity extends AppCompatActivity implements Listeners.SignU
     }
 
 
-
-
-
-
-
     private void signUp() {
 
 
-
-            signUpWithoutImage();
+        signUpWithoutImage();
 
     }
 

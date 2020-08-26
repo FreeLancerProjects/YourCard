@@ -37,15 +37,13 @@ public class EditProfileActivity extends AppCompatActivity implements Listeners.
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
         YoYo.with(Techniques.BounceIn)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
 
 
     }
-
-
 
 
     private void initView() {

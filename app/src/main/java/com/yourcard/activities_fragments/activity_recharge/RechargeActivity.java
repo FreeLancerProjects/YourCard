@@ -47,15 +47,13 @@ public class RechargeActivity extends AppCompatActivity implements Listeners.Bac
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recharge);
         YoYo.with(Techniques.ZoomInDown)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
 
 
     }
-
-
 
 
     private void initView() {
@@ -73,7 +71,7 @@ public class RechargeActivity extends AppCompatActivity implements Listeners.Bac
 //            setResult(RESULT_OK);
 //        }
 
-            finish();
+        finish();
 
     }
 

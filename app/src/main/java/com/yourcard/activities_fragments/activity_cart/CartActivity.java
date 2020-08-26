@@ -55,7 +55,7 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
 
         initView();
         YoYo.with(Techniques.ZoomIn)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
     }

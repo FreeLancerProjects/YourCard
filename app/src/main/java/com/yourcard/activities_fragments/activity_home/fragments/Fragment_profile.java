@@ -65,7 +65,7 @@ public class Fragment_profile extends Fragment implements Listeners.ProfileActio
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         YoYo.with(Techniques.SlideInUp)
-                .duration(1500)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();

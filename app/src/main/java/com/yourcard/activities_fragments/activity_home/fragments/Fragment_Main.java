@@ -75,7 +75,7 @@ public class Fragment_Main extends Fragment {
 
         change_slide_image();
         YoYo.with(Techniques.ZoomIn)
-                .duration(1500)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
 
@@ -89,8 +89,8 @@ public class Fragment_Main extends Fragment {
         menuImages.add(new SingleRestaurantModel());
         menuImages.add(new SingleRestaurantModel());
         menuImages.add(new SingleRestaurantModel());
-        List<SingleRestaurantModel.MenuImages> menuImagesList=new ArrayList<>();
-       menuImagesList.add(new SingleRestaurantModel.MenuImages());
+        List<SingleRestaurantModel.MenuImages> menuImagesList = new ArrayList<>();
+        menuImagesList.add(new SingleRestaurantModel.MenuImages());
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
 
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
@@ -99,8 +99,8 @@ public class Fragment_Main extends Fragment {
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
         for (int i = 0; i < menuImages.size(); i++) {
-            
-           menuImages.get(i).setMenu_images(menuImagesList);
+
+            menuImages.get(i).setMenu_images(menuImagesList);
 
         }
         slidingImage__adapter = new SlidingMenuImage_Adapter(activity, menuImages);
@@ -129,7 +129,7 @@ public class Fragment_Main extends Fragment {
         binding.flCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(activity, CartActivity.class);
+                Intent intent = new Intent(activity, CartActivity.class);
                 startActivity(intent);
             }
         });

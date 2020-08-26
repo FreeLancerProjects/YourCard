@@ -51,7 +51,7 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bank);
         YoYo.with(Techniques.ZoomIn)
-                .duration(1000)
+                .duration(900)
                 .repeat(0)
                 .playOn(binding.getRoot());
         initView();
@@ -70,7 +70,7 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
         binding.recbank.setItemViewCacheSize(25);
         binding.recbank.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         binding.recbank.setDrawingCacheEnabled(true);
-         binding.recbank.setAdapter(bankAdapter);
+        binding.recbank.setAdapter(bankAdapter);
         getBankAccount();
 
 
