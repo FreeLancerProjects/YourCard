@@ -104,7 +104,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+
+                            >
 
 
                             <FrameLayout
@@ -134,6 +136,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
                                 android:orientation="horizontal"
                                 android:padding="5dp">
 
@@ -206,7 +210,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:orientation="horizontal"
-                                android:padding="5dp">
+                                android:padding="5dp"
+                                android:layout_marginRight="8dp"
+android:layout_marginLeft="8dp"
+                                >
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -246,6 +253,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
                                 android:orientation="horizontal"
                                 android:padding="5dp">
 
@@ -285,6 +294,8 @@
                                 android:text="@string/choose_card_type"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
 
                                 />
 
@@ -397,6 +408,8 @@
                                 android:text="@string/descripsion"
                                 android:textColor="@color/black"
                                 android:textSize="15sp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
 
                                 />
 
@@ -446,6 +459,8 @@
                                 android:text="@string/ranked_cards"
                                 android:textColor="@color/gray9"
                                 android:textSize="14sp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
                                 app:layout_constraintTop_toBottomOf="@+id/view1"
 
                                 />

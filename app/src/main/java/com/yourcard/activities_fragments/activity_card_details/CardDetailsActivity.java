@@ -19,6 +19,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.yourcard.R;
 
@@ -70,7 +72,10 @@ public class CardDetailsActivity extends AppCompatActivity implements Listeners.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_card_detials);
-
+        YoYo.with(Techniques.SlideInUp)
+                .duration(1500)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
 
 

@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_card_type.CardTypeActivity;
 import com.yourcard.databinding.ActivityCardDetialsBinding;
@@ -34,7 +36,10 @@ public class EditProfileActivity extends AppCompatActivity implements Listeners.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
-
+        YoYo.with(Techniques.BounceIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
 
 

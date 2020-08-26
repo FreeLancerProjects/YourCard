@@ -16,7 +16,7 @@
         android:layout_margin="15dp"
         android:orientation="vertical"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="15dp"
         app:cardElevation="3dp"
         app:contentPadding="8dp">
 

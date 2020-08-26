@@ -14,6 +14,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_bill.BillActivity;
 import com.yourcard.activities_fragments.activity_recharge.RechargeActivity;
@@ -50,8 +52,12 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cart);
-        initView();
 
+        initView();
+        YoYo.with(Techniques.ZoomIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(binding.getRoot());
     }
 
 

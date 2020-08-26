@@ -5,6 +5,8 @@ import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -27,6 +29,7 @@ public class FavouriteProduct_Adapter extends RecyclerView.Adapter<RecyclerView.
     private LayoutInflater inflater;
     private String lang;
     private int i = 0;
+    private int lastPosition=-1;
 
     public FavouriteProduct_Adapter(List<SingleRestaurantModel.MenuImages> list, Context context) {
         this.list = list;
@@ -54,6 +57,17 @@ public class FavouriteProduct_Adapter extends RecyclerView.Adapter<RecyclerView.
         EventHolder myHolder = (EventHolder) eventHohlder;
 
 
+        setAnimation(myHolder.itemView, position);
+
+    }
+
+    private void setAnimation(View viewToAnimate, int position) {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.top_down_anim);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override

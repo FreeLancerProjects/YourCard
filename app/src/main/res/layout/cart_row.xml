@@ -87,8 +87,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/ic_minus"
-                    android:tint="@color/gray4"
+                    android:tint="@color/white"
                     android:background="@drawable/add_bg"
+                  android:padding="5dp"
 
                     />
 
@@ -119,6 +120,7 @@
             app:layout_constraintTop_toTopOf="@+id/cardView"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:cardElevation="5dp"
+            app:cardBackgroundColor="@color/transparent"
             >
 
         <ImageView

@@ -52,10 +52,11 @@
     <string name="cart">Cart</string>
     <string name="pay">Pay</string>
     <string name="cart_empty">Cart Empty</string>
-    <string name="copoun">Copoun</string>
+    <string name="copoun">Add Discount Copoun Here...</string>
     <string name="quantity">Quantity</string>
     <string name="confirm">Confirm</string>
     <string name="my_credit">My credit</string>
     <string name="my_favourites">My Favourites</string>
+    <string name="bill">bill</string>
 
 </resources>

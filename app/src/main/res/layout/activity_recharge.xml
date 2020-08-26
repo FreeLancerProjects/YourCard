@@ -172,14 +172,14 @@
                                 android:layout_height="70dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_whatsapp" />
+                                android:src="@drawable/master" />
 
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_twitter"
+                                android:src="@drawable/visa"
 
                                 />
 
@@ -188,7 +188,7 @@
                                 android:layout_height="70dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_snapchat"
+                                android:src="@drawable/mada"
 
                                 />
 
@@ -197,7 +197,7 @@
                                 android:layout_height="70dp"
                                 android:layout_weight="1"
                                 android:padding="10dp"
-                                android:src="@drawable/ic_facebook"
+                                android:src="@drawable/cash"
 
                                 />
 
@@ -222,7 +222,7 @@
                                 android:layout_margin="8dp"
                                 android:background="@color/white"
                                 android:gravity="center"
-                                android:hint="@string/phone"
+                                android:hint="1000"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"

@@ -12,10 +12,12 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.yourcard.R;
 import com.yourcard.adapters.TypeAdapter;
-import com.yourcard.databinding.ActivityCardDetialsBinding;
+
 import com.yourcard.databinding.ActivityRechargeBinding;
 import com.yourcard.interfaces.Listeners;
 import com.yourcard.language.Language;
@@ -44,7 +46,10 @@ public class RechargeActivity extends AppCompatActivity implements Listeners.Bac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recharge);
-
+        YoYo.with(Techniques.ZoomInDown)
+                .duration(1000)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
 
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -27,6 +29,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private LayoutInflater inflater;
     private String lang;
     private CartActivity cartActivity;
+    private int lastPosition=-1;
 
     public Cart_Adapter(List<Add_Order_Model.Details> orderlist, Context context) {
         this.orderlist = orderlist;
@@ -86,46 +89,22 @@ public class Cart_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 }
             }
         });
-/*
-if(i==position){
-    if(i!=0) {
-        if (((EventHolder) holder).binding.expandLayout.isExpanded()) {
-            ((EventHolder) holder).binding.tvTitle.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            ((EventHolder) holder).binding.recView.setLayoutParams(new FrameLayout.LayoutParams(0, 0));
-            ((EventHolder) holder).binding.expandLayout.collapse(true);
-            ((EventHolder) holder).binding.expandLayout.setVisibility(View.GONE);
+        setAnimation(holder.itemView, position);
 
+    }
 
-
-        }
-        else {
-
-          //  ((EventHolder) holder).binding.tvTitle.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            ((EventHolder) holder).binding.recView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-            ((EventHolder) holder).binding.expandLayout.setVisibility(View.VISIBLE);
-
-           ((EventHolder) holder).binding.expandLayout.expand(true);
+    private void setAnimation(View viewToAnimate, int position) {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.top_down_anim);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
         }
     }
-    else {
-        eventHolder.binding.tvTitle.setBackground(activity.getResources().getDrawable(R.drawable.linear_bg_green));
-
-        ((EventHolder) holder).binding.tvTitle.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        ((EventHolder) holder).binding.recView.setLayoutParams(new FrameLayout.LayoutParams(0, 0));
-
-    }
-}
-if(i!=position) {
-    eventHolder.binding.tvTitle.setBackground(activity.getResources().getDrawable(R.drawable.linear_bg_white));
-    ((EventHolder) holder).binding.tvTitle.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-    ((EventHolder) holder).binding.recView.setLayoutParams(new FrameLayout.LayoutParams(0, 0));
-    ((EventHolder) holder).binding.expandLayout.collapse(true);
 
 
-}*/
 
-    }
+
 
     @Override
     public int getItemCount() {

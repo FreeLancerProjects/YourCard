@@ -56,14 +56,8 @@ public class SubCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
 
         });
-        Runnable startAnimation = new Runnable() {
-            @Override
-            public void run() {
-                setAnimation(myHolder.itemView, position);
+        setAnimation(holder.itemView, position);
 
-            }
-        };
-        myHolder.itemView.postDelayed(startAnimation, 200);
     }
 
     private void setAnimation(View viewToAnimate, int position) {
@@ -74,6 +68,7 @@ public class SubCardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             lastPosition = position;
         }
     }
+
 
     @Override
     public int getItemCount() {

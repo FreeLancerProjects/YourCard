@@ -12,6 +12,8 @@ import androidx.collection.ArraySet;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yarolegovich.discretescrollview.transform.Pivot;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 import com.yourcard.R;
@@ -48,6 +50,10 @@ public class FragmentDiscountCoupons extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        YoYo.with(Techniques.SlideInUp)
+                .duration(1500)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
 
 

@@ -15,6 +15,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.adapters.FavouriteProduct_Adapter;
 import com.yourcard.databinding.ActivityMyFavoriteBinding;
@@ -61,6 +63,10 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my_favorite);
+        YoYo.with(Techniques.ZoomIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
     }
 

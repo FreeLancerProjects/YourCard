@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.adapters.BankAdapter;
 import com.yourcard.databinding.ActivityBankBinding;
@@ -48,6 +50,10 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_bank);
+        YoYo.with(Techniques.ZoomIn)
+                .duration(1000)
+                .repeat(0)
+                .playOn(binding.getRoot());
         initView();
     }
 

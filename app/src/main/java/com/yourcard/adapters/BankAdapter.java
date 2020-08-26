@@ -2,7 +2,10 @@ package com.yourcard.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -19,6 +22,7 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.MyHolder> {
 
     private List<SingleRestaurantModel.MenuImages> bankDataModelList;
     private Context context;
+    private int lastPosition=-1;
 
     public BankAdapter(List<SingleRestaurantModel.MenuImages> bankDataModelList, Context context) {
         this.bankDataModelList = bankDataModelList;
@@ -40,6 +44,17 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.MyHolder> {
 
 
 
+        setAnimation(holder.itemView, position);
+
+    }
+
+    private void setAnimation(View viewToAnimate, int position) {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.top_down_anim);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override

@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 import com.yourcard.databinding.FragmentOrderBinding;
@@ -30,6 +32,7 @@ public class Fragment_Order extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_order, container, false);
+
         return binding.getRoot();
     }
 
@@ -37,7 +40,10 @@ public class Fragment_Order extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
-
+        YoYo.with(Techniques.SlideInUp)
+                .duration(1500)
+                .repeat(0)
+                .playOn(binding.getRoot());
 
     }
 
