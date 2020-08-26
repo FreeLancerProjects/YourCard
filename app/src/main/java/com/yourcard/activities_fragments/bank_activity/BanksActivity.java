@@ -11,9 +11,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.yourcard.R;
+import com.yourcard.adapters.BankAdapter;
 import com.yourcard.databinding.ActivityBankBinding;
 import com.yourcard.interfaces.Listeners;
 import com.yourcard.language.Language;
+import com.yourcard.models.SingleRestaurantModel;
 import com.yourcard.models.UserModel;
 import com.yourcard.preferences.Preferences;
 import com.yourcard.remote.Api;
@@ -34,6 +36,8 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
     private String lang;
     private Preferences preferences;
     private UserModel userModel;
+    private BankAdapter bankAdapter;
+    private List<SingleRestaurantModel.MenuImages> bankModelList;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -48,8 +52,8 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
     }
 
     private void initView() {
-//        bankModelList = new ArrayList<>();
-//        bankAdapter = new BankAdapter(bankModelList, this);
+        bankModelList = new ArrayList<>();
+        bankAdapter = new BankAdapter(bankModelList, this);
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(this);
         Paper.init(this);
@@ -60,11 +64,24 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
         binding.recbank.setItemViewCacheSize(25);
         binding.recbank.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         binding.recbank.setDrawingCacheEnabled(true);
-        // binding.recbank.setAdapter(bankAdapter);
+         binding.recbank.setAdapter(bankAdapter);
         getBankAccount();
 
 
+        updateUI();
     }
+
+    private void updateUI() {
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankModelList.add(new SingleRestaurantModel.MenuImages());
+        bankAdapter.notifyDataSetChanged();
+
+    }
+
 
     private void getBankAccount() {
 //        Api.getService(Tags.base_url)

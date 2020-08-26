@@ -6,6 +6,11 @@
         <variable
             name="lang"
             type="String" />
+        <variable
+            name="listener"
+            type="com.yourcard.interfaces.Listeners.ProfileActions" />
+
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,7 +40,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    app:layout_scrollFlags="scroll|enterAlways">
+                    app:layout_scrollFlags="scroll|enterAlways
+
+">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="80dp"
@@ -140,7 +147,10 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp">
+                    android:layout_margin="15dp"
+                    android:onClick="@{()->listener.order()}"
+
+                    >
 
                     <ImageView
                         android:id="@+id/imOrders"
@@ -323,6 +333,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.bankAccount()}"
+
 
                     >
 
@@ -376,6 +388,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.profile()}"
 
                     >
 
@@ -397,7 +410,7 @@
                         android:layout_weight="1"
                         android:clickable="false"
                         android:longClickable="false"
-                        android:text="@string/my_cards"
+                        android:text="@string/setting"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -418,7 +431,8 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1px"
-                    android:background="@color/gray9" />
+                    android:background="@color/gray9"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -429,6 +443,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.favorite()}"
 
                     >
 
@@ -482,6 +497,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.charge()}"
 
                     >
 
@@ -524,6 +540,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.aboutApp()}"
 
                     >
 
@@ -566,6 +583,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="1"
+                    android:onClick="@{()->listener.logout()}"
+
 
                     >
 

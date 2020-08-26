@@ -21,48 +21,23 @@ public interface Listeners {
         void choosecard();
     }
 
-    interface HomeActions {
+    interface ProfileActions {
         void order();
 
-        void terms();
+        void charge();
+
 
         void aboutApp();
 
+        void logout();
+
+        void favorite();
+
+        void bankAccount();
         void profile();
 
-        void contactus();
-        void citydialog();
-        void favourite();
-        void search();
-        void arLang();
-        void enLang();
-    }
 
-    interface RestaurantActions {
-        void order();
-
-        void increasechild();
-
-        void decreasechild();
-
-        void increasepeople();
-
-        void decreasepeople();
-    }
-    interface ContactActions {
-        void email();
-
-        void call();
-
-        void whats();
-
-        void twitter();
 
     }
 
-    interface EditprofileListener
-    {
-        void Editprofile(String name);
-
-    }
 }

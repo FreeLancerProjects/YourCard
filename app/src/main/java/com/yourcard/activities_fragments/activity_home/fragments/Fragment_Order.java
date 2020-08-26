@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
-import com.yourcard.databinding.FragmentEditProfileBinding;
 import com.yourcard.databinding.FragmentOrderBinding;
 import com.yourcard.preferences.Preferences;
 

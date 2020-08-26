@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 
 import com.yourcard.R;
+import com.yourcard.activities_fragments.activity_bill.BillActivity;
+import com.yourcard.activities_fragments.activity_recharge.RechargeActivity;
 import com.yourcard.adapters.Cart_Adapter;
 import com.yourcard.databinding.ActivityCartBinding;
 import com.yourcard.interfaces.Listeners;
@@ -53,7 +55,6 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
     }
 
 
-
     @SuppressLint("RestrictedApi")
     private void initView() {
         preferences = Preferences.getInstance();
@@ -67,7 +68,13 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
         binding.recView.setAdapter(cart_adapter);
         setdtat();
 
-
+        binding.btnCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CartActivity.this, BillActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setdtat() {

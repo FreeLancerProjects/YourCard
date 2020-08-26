@@ -1,5 +1,6 @@
 package com.yourcard.activities_fragments.activity_home.fragments;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,23 +21,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.yourcard.R;
+import com.yourcard.activities_fragments.activity_edit_profile.EditProfileActivity;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
+import com.yourcard.activities_fragments.activity_my_favorite.MyFavoriteActivity;
+import com.yourcard.activities_fragments.activity_recharge.RechargeActivity;
+import com.yourcard.activities_fragments.bank_activity.BanksActivity;
 import com.yourcard.adapters.CardAdapter;
 import com.yourcard.adapters.SlidingMenuImage_Adapter;
 import com.yourcard.databinding.FragmentMainBinding;
 import com.yourcard.databinding.FragmentProfileBinding;
+import com.yourcard.interfaces.Listeners;
 import com.yourcard.models.SingleRestaurantModel;
 import com.yourcard.models.UserModel;
 import com.yourcard.preferences.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import io.paperdb.Paper;
 
-public class Fragment_profile extends Fragment {
+public class Fragment_profile extends Fragment implements Listeners.ProfileActions {
     private HomeActivity activity;
     private FragmentProfileBinding binding;
     private Preferences preferences;
@@ -65,7 +72,9 @@ public class Fragment_profile extends Fragment {
         activity = (HomeActivity) getActivity();
         preferences = Preferences.getInstance();
         Paper.init(activity);
-
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        binding.setLang(lang);
+        binding.setListener(this);
 //        binding.appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 //            @Override
 //            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -86,4 +95,42 @@ public class Fragment_profile extends Fragment {
     }
 
 
+    @Override
+    public void order() {
+
+    }
+
+    @Override
+    public void charge() {
+        Intent intent = new Intent(activity, RechargeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void aboutApp() {
+
+    }
+
+    @Override
+    public void logout() {
+
+    }
+
+    @Override
+    public void favorite() {
+        Intent intent = new Intent(activity, MyFavoriteActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void bankAccount() {
+        Intent intent = new Intent(activity, BanksActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void profile() {
+        Intent intent = new Intent(activity, EditProfileActivity.class);
+        startActivity(intent);
+    }
 }

@@ -23,6 +23,7 @@ import com.yourcard.preferences.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import io.paperdb.Paper;
 
@@ -58,14 +59,16 @@ public class FragmentDiscountCoupons extends Fragment {
         activity = (HomeActivity) getActivity();
         preferences = Preferences.getInstance();
         Paper.init(activity);
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        binding.setLang(lang);
         adapter = new SiteAdapter(menuImagesList, activity);
         binding.discreteScrollView.setAdapter(adapter);
         binding.discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
-                .setMaxScale(0.1f)
-                .setMinScale(0.1f)
+                .setMaxScale(1.0f)
+                .setMinScale(0.75f)
                 .setPivotX(Pivot.X.CENTER)
-                .setPivotY(Pivot.Y.BOTTOM)
                 .build());
+
         updateUI();
     }
 
@@ -77,6 +80,7 @@ public class FragmentDiscountCoupons extends Fragment {
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
         menuImagesList.add(new SingleRestaurantModel.MenuImages());
         adapter.notifyDataSetChanged();
+        binding.discreteScrollView.scrollToPosition(1);
 
     }
 
