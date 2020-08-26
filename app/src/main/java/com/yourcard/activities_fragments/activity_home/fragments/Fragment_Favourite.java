@@ -120,4 +120,12 @@ public class Fragment_Favourite extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.SlideInUp)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 }

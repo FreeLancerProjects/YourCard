@@ -156,5 +156,13 @@ public class Fragment_Main extends Fragment {
         }, 3000, 3000);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.ZoomIn)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
 
+    }
 }

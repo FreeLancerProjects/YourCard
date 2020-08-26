@@ -161,4 +161,12 @@ public class LoginActivity extends AppCompatActivity implements Listeners.LoginL
         binding.tvCode.setText(countryModel.getDialCode());
         binding.imageFlag.setImageResource(countryModel.getFlag());
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.RollIn)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 }

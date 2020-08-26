@@ -63,6 +63,10 @@ public class EditProfileActivity extends AppCompatActivity implements Listeners.
 //        if (isDataAdded) {
 //            setResult(RESULT_OK);
 //        }
+        YoYo.with(Techniques.BounceInUp)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
         finish();
     }
 
@@ -70,6 +74,14 @@ public class EditProfileActivity extends AppCompatActivity implements Listeners.
     @Override
     public void onBackPressed() {
         back();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.BounceIn)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
     }
 
     @Override

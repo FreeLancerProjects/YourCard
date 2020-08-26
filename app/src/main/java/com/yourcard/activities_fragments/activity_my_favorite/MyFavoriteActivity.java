@@ -193,8 +193,10 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
 
     @Override
     public void back() {
-
-
+        YoYo.with(Techniques.ZoomOut)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
         finish();
     }
 
@@ -202,6 +204,14 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
     @Override
     public void onBackPressed() {
         back();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.ZoomIn)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
     }
 
 }

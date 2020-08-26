@@ -70,7 +70,10 @@ public class RechargeActivity extends AppCompatActivity implements Listeners.Bac
 //        if (isDataAdded) {
 //            setResult(RESULT_OK);
 //        }
-
+        YoYo.with(Techniques.Pulse)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
         finish();
 
     }
@@ -81,5 +84,12 @@ public class RechargeActivity extends AppCompatActivity implements Listeners.Bac
         back();
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.ZoomInDown)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 }

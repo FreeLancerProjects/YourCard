@@ -139,4 +139,12 @@ public class Fragment_profile extends Fragment implements Listeners.ProfileActio
         Intent intent = new Intent(activity, EditProfileActivity.class);
         startActivity(intent);
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.SlideInUp)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 }

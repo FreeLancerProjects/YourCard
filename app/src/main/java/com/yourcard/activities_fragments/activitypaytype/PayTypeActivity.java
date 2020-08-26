@@ -58,12 +58,24 @@ public class PayTypeActivity extends AppCompatActivity implements Listeners.Back
     public void back() {
 //        if (isDataAdded) {
 //            setResult(RESULT_OK);
-//        }
 
+//        }
+        YoYo.with(Techniques.ZoomOut)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
         finish();
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.ZoomInDown)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 
     @Override
     public void onBackPressed() {

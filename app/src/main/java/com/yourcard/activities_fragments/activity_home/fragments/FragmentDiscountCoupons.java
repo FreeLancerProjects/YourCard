@@ -89,5 +89,12 @@ public class FragmentDiscountCoupons extends Fragment {
         binding.discreteScrollView.scrollToPosition(1);
 
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        YoYo.with(Techniques.SlideInUp)
+                .duration(900)
+                .repeat(0)
+                .playOn(binding.getRoot());
+    }
 }
