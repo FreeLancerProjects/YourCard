@@ -20,7 +20,7 @@ import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivi
 import com.yourcard.activities_fragments.activity_home.fragments.FragmentDiscountCoupons;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
-import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Order;
+import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Favourite;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_profile;
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
 
@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
     private Fragment_Main fragment_main;
     private Fragment_profile fragment_profile;
     private FragmentDiscountCoupons fragmentdiscountcoupons;
-    private Fragment_Order fragment_Order;
+    private Fragment_Favourite fragment_Favourite;
     private UserModel userModel;
     private String lang;
     private String token;
@@ -119,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case 2:
 
-                    displayFragmentOrder();
+                    displayFragmentFavourite();
 
                     break;
                 case 3:
@@ -149,8 +149,8 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            if (fragment_Order != null && fragment_Order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            if (fragment_Favourite != null && fragment_Favourite.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Favourite).commit();
             }
             if (fragment_profile != null && fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
@@ -180,8 +180,8 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            if (fragment_Order != null && fragment_Order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            if (fragment_Favourite != null && fragment_Favourite.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Favourite).commit();
             }
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
@@ -204,10 +204,10 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void displayFragmentOrder() {
+    public void displayFragmentFavourite() {
         try {
-            if (fragment_Order == null) {
-                fragment_Order = Fragment_Order.newInstance();
+            if (fragment_Favourite == null) {
+                fragment_Favourite = Fragment_Favourite.newInstance();
             }
 
 
@@ -221,11 +221,11 @@ public class HomeActivity extends AppCompatActivity {
             if (fragment_profile != null && fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
-            if (fragment_Order.isAdded()) {
-                fragmentManager.beginTransaction().show(fragment_Order).commit();
+            if (fragment_Favourite.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_Favourite).commit();
 
             } else {
-                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_Order, "fragment_Order").addToBackStack("fragment_Order").commit();
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_Favourite, "fragment_Order").addToBackStack("fragment_Order").commit();
 
             }
             //  binding.setTitle(getString(R.string.home));
@@ -242,8 +242,8 @@ public class HomeActivity extends AppCompatActivity {
             }
 
 
-            if (fragment_Order != null && fragment_Order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_Order).commit();
+            if (fragment_Favourite != null && fragment_Favourite.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_Favourite).commit();
             }
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
