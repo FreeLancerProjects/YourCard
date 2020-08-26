@@ -40,7 +40,7 @@
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="@string/register"
-            android:textColor="@color/black"
+            android:textColor="@color/gray11"
             android:textSize="14sp" />
 
     </LinearLayout>
