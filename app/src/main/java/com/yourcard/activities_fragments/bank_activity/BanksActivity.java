@@ -1,6 +1,7 @@
 package com.yourcard.activities_fragments.bank_activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yourcard.R;
+import com.yourcard.activities_fragments.activity_transfer.TransFerActivity;
 import com.yourcard.adapters.BankAdapter;
 import com.yourcard.databinding.ActivityBankBinding;
 import com.yourcard.interfaces.Listeners;
@@ -127,4 +129,8 @@ public class BanksActivity extends AppCompatActivity implements Listeners.BackLi
     }
 
 
+    public void showtransfer() {
+        Intent intent = new Intent(BanksActivity.this, TransFerActivity.class);
+        startActivity(intent);
+    }
 }

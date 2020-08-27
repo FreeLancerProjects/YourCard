@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import com.yourcard.R;
 
 import com.yourcard.activities_fragments.activity_card_details.CardDetailsActivity;
+import com.yourcard.activities_fragments.activity_chat.ChatActivity;
 import com.yourcard.activities_fragments.activity_home.fragments.FragmentDiscountCoupons;
 import com.yourcard.activities_fragments.activity_home.fragments.Fragment_Main;
 
@@ -25,6 +26,7 @@ import com.yourcard.activities_fragments.activity_home.fragments.Fragment_profil
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
 
 import com.yourcard.activities_fragments.activity_signup.SignUpActivity;
+import com.yourcard.activities_fragments.activtitycards.CardsActivity;
 import com.yourcard.databinding.ActivityHomeBinding;
 import com.yourcard.language.Language;
 
@@ -79,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -485,7 +487,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void showite() {
-        Intent intent = new Intent(HomeActivity.this, CardDetailsActivity.class);
+        Intent intent = new Intent(HomeActivity.this, CardsActivity.class);
         startActivity(intent);
     }
 }

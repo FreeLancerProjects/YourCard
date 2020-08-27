@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 import com.yourcard.activities_fragments.activity_login.LoginActivity;
+import com.yourcard.activities_fragments.activtitycards.CardsActivity;
 import com.yourcard.databinding.CardRowBinding;
 import com.yourcard.databinding.CountriesRowBinding;
 import com.yourcard.models.CountryModel;
@@ -54,8 +55,13 @@ public class CardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(context instanceof  HomeActivity){
                 HomeActivity activity = (HomeActivity) context;
-                activity.showite();
+                activity.showite();}
+                else {
+                    CardsActivity activity = (CardsActivity) context;
+                    activity.showite();
+                }
             }
 
         });

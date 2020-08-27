@@ -26,6 +26,7 @@ import com.yourcard.R;
 import com.yourcard.activities_fragments.activity_edit_profile.EditProfileActivity;
 import com.yourcard.activities_fragments.activity_home.HomeActivity;
 import com.yourcard.activities_fragments.activity_my_favorite.MyFavoriteActivity;
+import com.yourcard.activities_fragments.activity_my_orders.MyOrderActivity;
 import com.yourcard.activities_fragments.activity_recharge.RechargeActivity;
 import com.yourcard.activities_fragments.bank_activity.BanksActivity;
 import com.yourcard.adapters.CardAdapter;
@@ -103,7 +104,8 @@ public class Fragment_profile extends Fragment implements Listeners.ProfileActio
 
     @Override
     public void order() {
-
+        Intent intent = new Intent(activity, MyOrderActivity.class);
+        startActivity(intent);
     }
 
     @Override

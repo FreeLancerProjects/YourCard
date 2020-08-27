@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.yourcard.R;
+import com.yourcard.activities_fragments.bank_activity.BanksActivity;
 import com.yourcard.databinding.BankRowBinding;
 import com.yourcard.models.SingleRestaurantModel;
 
@@ -42,7 +43,13 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, int position) {
 
-
+holder.itemView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        BanksActivity banksActivity=(BanksActivity)context;
+        banksActivity.showtransfer();
+    }
+});
 
         setAnimation(holder.itemView, position);
 

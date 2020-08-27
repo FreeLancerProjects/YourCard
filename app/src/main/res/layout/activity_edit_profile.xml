@@ -350,7 +350,7 @@
                         android:layout_weight="1"
                         android:clickable="false"
                         android:longClickable="false"
-                        android:text="@string/bank_accounts"
+                        android:text="@string/notifications"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 

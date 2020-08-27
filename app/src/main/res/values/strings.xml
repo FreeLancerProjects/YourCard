@@ -59,5 +59,11 @@
     <string name="my_favourites">My Favourites</string>
     <string name="bill">bill</string>
     <string name="pay_type">Pay Type</string>
+    <string name="bank_transfer">Bank transfer</string>
+    <string name="the_purpose_of_the_conversion">The purpose of the conversion</string>
+    <string name="transfer_name">Transfer Name</string>
+    <string name="send">Send</string>
+    <string name="transfer_image">Transfer Image</string>
+    <string name="type_message">Type Message</string>
 
 </resources>
